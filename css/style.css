@@ -1,7 +1,40 @@
 ﻿
-/* PORTFOLIO V5 - TRAN VIET ANH
-   Nang cap tu CSS cu theo yeu cau Lab 5
-*/
+/* =====================================================
+   PORTFOLIO V5 - NGUYEN BA KHANH DUY
+   Sinh vien nam 3 - Khoa hoc may tinh
+   Modern Technology Portfolio
+   ===================================================== */
+
+
+/* 1. THIET LAP CHUNG
+===================================================== */
+
+:root {
+  --primary: #123b63;
+  --primary-dark: #0b2742;
+  --primary-light: #eaf3fb;
+
+  --secondary: #08a6b5;
+  --secondary-light: #e5f8fa;
+
+  --accent: #f2a541;
+
+  --background: #f4f7fb;
+  --surface: #ffffff;
+  --surface-alt: #edf3f8;
+
+  --text: #263747;
+  --text-light: #64778a;
+
+  --border: #dce5ed;
+
+  --shadow: 0 8px 25px rgba(18, 59, 99, 0.08);
+  --shadow-hover: 0 14px 35px rgba(18, 59, 99, 0.15);
+
+  --radius: 14px;
+  --transition: 0.25s ease;
+}
+
 *,
 *::before,
 *::after {
@@ -10,398 +43,870 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
   width: 100%;
   min-width: 0;
   margin: 0;
+
   font-family: "Inter", "Segoe UI", Arial, sans-serif;
-  font-size: 1.0625rem;
-  line-height: 1.6;
-  color: #1d2733;
-  background: #f4f6f8;
+  font-size: 16px;
+  line-height: 1.7;
+
+  color: var(--text);
+  background: var(--background);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--secondary);
+  transition: var(--transition);
 }
 
 h1,
 h2,
 h3 {
-  line-height: 1.25;
+  line-height: 1.3;
   margin: 0 0 1rem;
 }
 
-h2 {
-  font-size: 1.875rem;
-  color: #12457a;
+h1,
+h2,
+h3,
+p {
+  overflow-wrap: break-word;
 }
 
-a {
-  color: #12457a;
+h2 {
+  position: relative;
+  display: inline-block;
+
+  margin-bottom: 1.5rem;
+
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+h2::after {
+  content: "";
+
+  display: block;
+  width: 55px;
+  height: 4px;
+
+  margin-top: 10px;
+
+  background: var(--secondary);
+  border-radius: 10px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1148px;
+
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.section > .container > p {
+  color: var(--text-light);
+  max-width: 800px;
+}
+
+.section-alt {
+  background: var(--surface-alt);
 }
 
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-  outline: 0.1875rem solid #e8a33d;
-  outline-offset: 0.1875rem;
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
 }
 
-.container {
-  width: 100%;
-  max-width: 1148px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
 
-.section {
-  padding: 4rem 0;
-}
-
-.section-alt {
-  background: #e6edf3;
-}
+/* 2. HEADER
+===================================================== */
 
 .site-header {
-  background: #12457a;
-  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  padding: 15px 0;
+
+  background: var(--primary-dark);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
 }
 
 .site-header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 15px;
 }
 
 .logo {
   color: #ffffff;
-  font-size: 1.375rem;
-  font-weight: 700;
+
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+
   text-decoration: none;
+}
+
+.logo:hover {
+  color: var(--secondary);
 }
 
 .menu {
   display: flex;
-  gap: 0 1rem;
-  list-style: none;
+  align-items: center;
   flex-wrap: wrap;
+
+  gap: 8px;
+
+  list-style: none;
   margin: 0;
   padding: 0;
-  white-space: nowrap;
 }
 
 .menu a {
   display: inline-block;
+
+  padding: 8px 12px;
+
   color: #ffffff;
-  text-decoration: none;
+  font-size: 14px;
   font-weight: 600;
-  padding: 0.25rem 0.375rem;
-  border-radius: 0.25rem;
-  transition: background-color 180ms ease;
+
+  text-decoration: none;
+  border-radius: 8px;
+
+  transition: var(--transition);
 }
 
 .menu a:hover {
-  background-color: #28639b;
-  text-decoration: underline;
+  color: #ffffff;
+  background: var(--secondary);
+
+  transform: translateY(-2px);
 }
 
+
+/* 3. HERO - GIOI THIEU
+===================================================== */
+
 .hero {
-  background: #ffffff;
-  padding: 4.5rem 0;
+  position: relative;
+  overflow: hidden;
+
+  padding: 90px 0;
+
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(8, 166, 181, 0.12),
+      transparent 35%
+    ),
+    linear-gradient(135deg, #ffffff, #edf5fc);
 }
 
 .hero-inner {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 4rem;
+
+  gap: 65px;
   flex-wrap: wrap;
 }
 
 .hero-text {
   flex: 1;
-  min-width: 0;
+  min-width: 280px;
 }
 
 .hero-role {
-  color: #4a5a6a;
-  font-weight: 600;
-  margin: 0 0 0.5rem;
+  display: inline-block;
+
+  padding: 8px 16px;
+  margin-bottom: 15px;
+
+  color: var(--secondary);
+  background: var(--secondary-light);
+
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1px;
+
+  border-radius: 30px;
 }
 
 .hero h1 {
-  font-size: 3.5rem;
-  color: #12457a;
+  margin-bottom: 22px;
+
+  color: var(--primary-dark);
+
+  font-size: clamp(34px, 5vw, 54px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
 }
 
-.button {
-  display: inline-block;
-  margin-top: 0.5rem;
-  padding: 0.75rem 1.75rem;
-  background: #e8a33d;
-  color: #1d2733;
-  font: inherit;
-  font-weight: 700;
-  text-decoration: none;
-  border: none;
-  border-radius: 0.375rem;
-  cursor: pointer;
-  transition: background-color 180ms ease,
-              transform 180ms ease;
-}
+.hero-text > p:not(.hero-role) {
+  max-width: 680px;
 
-.button:hover {
-  background: #f4ba63;
-  color: #1d2733;
-}
-
-.button:active {
-  transform: translateY(0.0625rem);
-}
-
-.img {
-  max-width: 100%;
-  height: auto;
+  color: var(--text-light);
+  font-size: 16px;
+  line-height: 1.9;
 }
 
 .avatar {
-  width: 20rem;
-  height: 20rem;
+  width: 300px;
+  height: 300px;
+
   max-width: 100%;
-  border-radius: 50%;
+
   object-fit: cover;
+
+  border: 8px solid #ffffff;
+  border-radius: 50%;
+
+  box-shadow: 0 15px 40px rgba(18, 59, 99, 0.18);
+
+  transition: var(--transition);
 }
+
+.avatar:hover {
+  transform: scale(1.04);
+  box-shadow: var(--shadow-hover);
+}
+
+
+/* 4. BUTTON
+===================================================== */
+
+.button {
+  display: inline-block;
+
+  margin-top: 15px;
+  padding: 13px 27px;
+
+  color: #ffffff;
+  background: var(--secondary);
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+
+  text-decoration: none;
+  text-align: center;
+
+  border: none;
+  border-radius: 9px;
+
+  cursor: pointer;
+
+  box-shadow: 0 5px 15px rgba(8, 166, 181, 0.2);
+
+  transition: var(--transition);
+}
+
+.button:hover {
+  color: #ffffff;
+  background: var(--primary);
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 8px 20px rgba(18, 59, 99, 0.2);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+
+/* 5. KY NANG
+===================================================== */
 
 .skills {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(13.75rem, 1fr));
-  gap: 0.5rem 2rem;
-  padding-left: 1.25rem;
+
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  );
+
+  gap: 16px;
+
+  margin: 25px 0 0;
+  padding: 0;
+
+  list-style: none;
 }
+
+.skills li {
+  position: relative;
+
+  min-height: 90px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 18px 18px 18px 48px;
+
+  color: var(--text);
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  box-shadow: var(--shadow);
+
+  font-size: 14px;
+  font-weight: 500;
+
+  transition: var(--transition);
+}
+
+.skills li::before {
+  content: "✓";
+
+  position: absolute;
+  left: 17px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 23px;
+  height: 23px;
+
+  color: #ffffff;
+  background: var(--secondary);
+
+  font-size: 13px;
+  font-weight: 800;
+
+  border-radius: 50%;
+}
+
+.skills li:hover {
+  transform: translateY(-4px);
+
+  border-color: var(--secondary);
+  box-shadow: var(--shadow-hover);
+}
+
+
+/* 6. DU AN
+===================================================== */
 
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
-  gap: 1.5rem;
+
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  );
+
+  gap: 25px;
+
+  margin-top: 30px;
 }
 
 .card {
-  background: #ffffff;
-  padding: 1.25rem;
-  border-radius: 0.5rem;
-  border-top: 0.25rem solid #e8a33d;
-  transition: transform 180ms ease,
-              box-shadow 180ms ease;
+  display: flex;
+  flex-direction: column;
+
+  padding: 24px;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--secondary);
+
+  border-radius: var(--radius);
+
+  box-shadow: var(--shadow);
+
+  transition: var(--transition);
 }
 
 .card:hover,
 .card:focus-within {
-  transform: translateY(-0.25rem);
-  box-shadow: 0 0.375rem 1rem rgba(0, 0, 0, 0.12);
-}
+  transform: translateY(-8px);
 
-.card a {
-  overflow-wrap: anywhere;
+  border-top-color: var(--accent);
+
+  box-shadow: var(--shadow-hover);
 }
 
 .card img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
   display: block;
-  margin-bottom: 1rem;
+
+  width: 100%;
+  height: 180px;
+
+  object-fit: contain;
+
+  margin-bottom: 20px;
+
+  padding: 12px;
+
+  background: var(--primary-light);
+  border-radius: 10px;
 }
 
 .card h3 {
-  font-size: 1.25rem;
+  margin-bottom: 12px;
+
+  color: var(--primary);
+
+  font-size: 19px;
+  font-weight: 800;
 }
+
+.card p {
+  margin: 0 0 14px;
+
+  color: var(--text-light);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.card p strong {
+  color: var(--primary);
+}
+
+.card a {
+  display: inline-block;
+
+  margin-top: auto;
+  padding-top: 12px;
+
+  color: var(--secondary);
+  font-weight: 700;
+  font-size: 14px;
+
+  text-decoration: none;
+}
+
+.card a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+
+/* 7. BANG HOC TAP
+===================================================== */
 
 .study {
   width: 100%;
+
+  margin-top: 25px;
+
   border-collapse: collapse;
-  background: #ffffff;
+
+  background: var(--surface);
+
+  border-radius: 12px;
+  overflow: hidden;
+
+  box-shadow: var(--shadow);
 }
 
 .study th,
 .study td {
-  padding: 0.75rem 1rem;
-  border: 0.0625rem solid #c9d4de;
+  padding: 16px 18px;
+
   text-align: left;
+
+  border-bottom: 1px solid var(--border);
 }
 
 .study th {
-  background: #12457a;
   color: #ffffff;
+  background: var(--primary);
+
+  font-size: 14px;
+  font-weight: 700;
 }
+
+.study td {
+  color: var(--text);
+  font-size: 14px;
+}
+
+.study tbody tr {
+  transition: var(--transition);
+}
+
+.study tbody tr:nth-child(even) {
+  background: #f2f7fb;
+}
+
+.study tbody tr:hover {
+  background: var(--secondary-light);
+}
+
+.study tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* 8. LIEN HE
+===================================================== */
 
 .contact {
   display: flex;
-  gap: 3rem;
-  list-style: none;
-  padding: 0;
   flex-wrap: wrap;
+
+  gap: 15px 35px;
+
+  margin: 25px 0;
+  padding: 0;
+
+  list-style: none;
 }
 
+.contact li {
+  color: var(--text-light);
+  font-size: 15px;
+}
+
+.contact strong {
+  color: var(--primary);
+}
+
+.contact a {
+  color: var(--secondary);
+  font-weight: 600;
+
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.contact a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+
+/* 9. CONTACT FORM
+===================================================== */
+
 .contact-form {
-  max-width: 37.5rem;
-  margin-top: 2rem;
-  padding: 1.5rem;
-  background: #ffffff;
-  border: 0.0625rem solid #c9d4de;
-  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 650px;
+
+  margin-top: 35px;
+  padding: 30px;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  box-shadow: var(--shadow);
 }
 
 .contact-form h3 {
-  color: #12457a;
+  color: var(--primary);
+  font-size: 22px;
+}
+
+.contact-form > p {
+  color: var(--text-light);
+  font-size: 14px;
 }
 
 .form-group {
-  margin-bottom: 1.25rem;
+  margin-bottom: 20px;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 0.375rem;
-  font-weight: 600;
+
+  margin-bottom: 7px;
+
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .form-group input,
 .form-group textarea {
+  display: block;
+
   width: 100%;
   min-width: 0;
-  box-sizing: border-box;
-  padding: 0.75rem;
-  border: 0.0625rem solid #a9b9c7;
-  border-radius: 0.375rem;
-  font: inherit;
+
+  padding: 13px 15px;
+
+  color: var(--text);
+  background: #f8fafc;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
   background: #ffffff;
-  color: #1d2733;
+
+  border-color: var(--secondary);
+
+  outline: 3px solid rgba(8, 166, 181, 0.12);
 }
 
 .form-group textarea {
   resize: vertical;
 }
 
-.form-group input:focus-visible,
-.form-group textarea:focus-visible {
-  border-color: #12457a;
-  outline: 0.1875rem solid #e8a33d;
-  outline-offset: 0.1875rem;
-}
-
-.form-group input:focus:invalid:not(:placeholder-shown),
-.form-group textarea:focus:invalid:not(:placeholder-shown) {
-  border-color: #b34343;
-}
-
 .form-group small {
   display: block;
-  margin-top: 0.25rem;
-  color: #4a5a6a;
-  font-size: 0.875rem;
+
+  margin-top: 6px;
+
+  color: var(--text-light);
+  font-size: 12px;
 }
 
 .form-note {
-  margin-top: 1rem;
-  font-size: 0.875rem;
-  color: #4a5a6a;
+  margin-top: 18px;
+
+  color: var(--text-light);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+
+/* 10. FOOTER
+===================================================== */
+
+.site-footer {
+  padding: 28px 0;
+
+  color: #dce9f5;
+  background: var(--primary-dark);
 }
 
 .site-footer .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 10px 25px;
 }
 
+.site-footer p {
+  margin: 0;
+
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+
+/* 11. TABLET - MAX 768PX
+===================================================== */
+
 @media (max-width: 768px) {
+
   .section {
-    padding: 3rem 0;
+    padding: 60px 0;
   }
 
-  .hero {
-    padding: 3.5rem 0;
+  .site-header .container {
+    justify-content: center;
   }
 
-  .hero-inner {
-    gap: 2.5rem;
-  }
-
-  .hero h1 {
-    font-size: 2.75rem;
-  }
-
-  .avatar {
-    width: 16.25rem;
-    height: 16.25rem;
+  .site-header nav {
+    width: 100%;
   }
 
   .menu {
-    gap: 1.25rem;
+    justify-content: center;
   }
 
-  .study th,
-  .study td {
-    padding: 0.625rem 0.75rem;
+  .hero {
+    padding: 65px 0;
   }
+
+  .hero-inner {
+    flex-direction: column-reverse;
+    align-items: center;
+
+    gap: 30px;
+    text-align: center;
+  }
+
+  .hero-text {
+    width: 100%;
+  }
+
+  .hero-text > p:not(.hero-role) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .avatar {
+    width: 240px;
+    height: 240px;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .projects {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact {
+    gap: 15px 25px;
+  }
+
 }
 
+
+/* 12. MOBILE - MAX 480PX
+===================================================== */
+
 @media (max-width: 480px) {
+
   body {
-    font-size: 1rem;
+    font-size: 15px;
   }
 
   .container {
-    padding: 0 1rem;
+    padding: 0 16px;
+  }
+
+  .section {
+    padding: 45px 0;
+  }
+
+  .site-header {
+    padding: 15px 0;
   }
 
   .site-header .container {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 23px;
   }
 
   .menu {
-    flex-wrap: wrap;
-    gap: 0.75rem 1.25rem;
-    white-space: normal;
+    justify-content: center;
+    gap: 5px;
   }
 
-  .hero-inner {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 2rem;
+  .menu a {
+    padding: 7px 9px;
+    font-size: 12px;
+  }
+
+  .hero {
+    padding: 50px 0;
   }
 
   .hero h1 {
-    font-size: 2.25rem;
+    font-size: 31px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-role {
+    font-size: 11px;
+  }
+
+  .hero-text > p:not(.hero-role) {
+    font-size: 14px;
   }
 
   .avatar {
-    width: 13.75rem;
-    height: 13.75rem;
-  }
-
-  .button {
-    padding: 0.625rem 1.375rem;
-  }
-
-  .section {
-    padding: 2.5rem 0;
+    width: 190px;
+    height: 190px;
+    border-width: 6px;
   }
 
   h2 {
-    font-size: 1.625rem;
+    font-size: 25px;
+  }
+
+  .skills {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .skills li {
+    min-height: 75px;
+    padding: 15px 15px 15px 45px;
+  }
+
+  .projects {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .card img {
+    height: 155px;
+  }
+
+  .study {
+    font-size: 12px;
+  }
+
+  .study th,
+  .study td {
+    padding: 10px 8px;
+    font-size: 12px;
   }
 
   .contact {
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 10px;
   }
 
   .contact-form {
-    padding: 1rem;
+    padding: 20px 16px;
   }
+
+  .button {
+    padding: 11px 20px;
+    font-size: 14px;
+  }
+
+  .site-footer .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
 }
