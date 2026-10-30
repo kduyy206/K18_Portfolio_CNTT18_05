@@ -4,11 +4,11 @@
 
 ## Thông tin sinh viên
 
-- Họ và tên: [ ... ]
-- Mã sinh viên – Lớp: [ ... ]
-- Ngày thực hiện: [ ... ]
-- Link repository: [ ... ]
-- URL website: [ ... ]
+- Họ và tên: [ Nguyễn Bá Khánh Duy ]
+- Mã sinh viên 1871020707 – Lớp: [ CNTT 18-05 ]
+- Ngày thực hiện: [ 30/10/2006 ]
+- Link repository: [(https://github.com/kduyy206/K18_Portfolio_CNTT18_05.git) ]
+- URL website: [(https://github.com/kduyy206/K18_Portfolio_CNTT18_05) ]
 - Tình huống: [ ] Website của tôi  [ ] Repo luyện của giảng viên
 
 ## 1. Nhận định của tôi trước khi hỏi AI
